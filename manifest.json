@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Playtext",
+  "version": "1.5.0",
+  "description": "Paste a YouTube link and get a clean, readable transcript — copy, search, or download as TXT or SRT.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Playtext",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "tabs", "scripting", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://www.youtube-nocookie.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "headers",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "commands": {
+    "generate-transcript": {
+      "suggested_key": {
+        "default": "Alt+Shift+Y"
+      },
+      "description": "Open Playtext and transcribe the current YouTube video"
+    }
+  }
+}

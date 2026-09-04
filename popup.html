@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Playtext</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="top">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22">
+              <rect width="32" height="32" rx="8" fill="#16161c" />
+              <path
+                d="M7.5 8.2h17a2.6 2.6 0 0 1 2.6 2.6v9.2a2.6 2.6 0 0 1-2.6 2.6H13.2L8 27.2V22.6H7.5A2.6 2.6 0 0 1 4.9 20V10.8a2.6 2.6 0 0 1 2.6-2.6z"
+                fill="#fff"
+              />
+              <path d="M13.2 12.6 21 16.1l-7.8 3.5z" fill="#e11d48" />
+            </svg>
+          </span>
+          <div>
+            <h1>Playtext</h1>
+            <p>YouTube transcripts · v1.5</p>
+          </div>
+        </div>
+      </header>
+
+      <form id="form" class="form" autocomplete="off">
+        <label class="field">
+          <span>Video link</span>
+          <input
+            id="url"
+            name="url"
+            type="text"
+            spellcheck="false"
+            placeholder="Paste a YouTube URL"
+          />
+        </label>
+        <button id="generate" class="primary" type="submit">Generate transcript</button>
+      </form>
+
+      <p id="hint" class="hint hidden"></p>
+      <section id="video-card" class="card hidden">
+        <img id="thumb" alt="" />
+        <div class="card-copy">
+          <h2 id="title"></h2>
+          <p id="channel"></p>
+        </div>
+      </section>
+
+      <div id="toolbar" class="toolbar hidden">
+        <label class="select">
+          <span>Captions</span>
+          <select id="track"></select>
+        </label>
+        <label class="toggle">
+          <input id="timestamps" type="checkbox" />
+          <span>Timestamps</span>
+        </label>
+      </div>
+
+      <div id="status" class="status hidden" role="status"></div>
+      <section id="result" class="result hidden">
+        <div class="result-bar">
+          <input id="search" type="search" placeholder="Search transcript" />
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="txt" type="button">TXT</button>
+            <button id="srt" type="button">SRT</button>
+            <button id="expand" type="button">Full view</button>
+          </div>
+        </div>
+        <article id="transcript" class="transcript"></article>
+      </section>
+    </div>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Playtext transcript</title>
+    <link rel="stylesheet" href="viewer.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="kicker">Playtext transcript</p>
+        <h1 id="title">No transcript yet</h1>
+        <p id="channel" class="meta"></p>
+        <div class="row">
+          <label class="toggle">
+            <input id="timestamps" type="checkbox" />
+            Timestamps
+          </label>
+          <button id="copy" type="button">Copy</button>
+          <button id="txt" type="button">Download TXT</button>
+          <button id="srt" type="button">Download SRT</button>
+          <a id="watch" class="ghost hidden" href="#" target="_blank" rel="noreferrer">Open video</a>
+        </div>
+      </header>
+      <input id="search" type="search" placeholder="Search transcript" />
+      <article id="transcript" class="transcript"></article>
+    </main>
+    <script type="module" src="viewer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "origin", "operation": "remove" },
+        { "header": "referer", "operation": "remove" }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||youtube.com/api/timedtext",
+      "resourceTypes": ["xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "origin", "operation": "remove" },
+        { "header": "referer", "operation": "remove" }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||youtube.com/youtubei/v1/player",
+      "resourceTypes": ["xmlhttprequest", "other"]
+    }
+  }
+]
